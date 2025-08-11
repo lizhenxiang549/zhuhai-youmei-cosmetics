@@ -395,18 +395,35 @@ watch(
 
 .filter-select {
   padding: 8px 12px;
-  border: none;
+  border: 2px solid var(--border-color);
   border-radius: 6px;
   font-size: 14px;
   background: white;
   color: var(--text-primary);
   min-width: 120px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px;
 }
 
 .filter-select:focus {
   outline: none;
-  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.3);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* 自定义下拉选项样式 */
+.filter-select option {
+  background: white;
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border: none;
+  font-size: 14px;
 }
 
 .search-section {
