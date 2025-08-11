@@ -258,13 +258,30 @@ onMounted(async () => {
 /* 页面标题区域 */
 .page-hero {
   padding: 120px 0 80px;
-  background: var(--primary-color);
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #aa580f 100%);
   color: white;
   margin-top: 90px;
+  position: relative;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.3) 2%, transparent 3%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.2) 1%, transparent 2%),
+    radial-gradient(circle at 60% 20%, rgba(255,255,255,0.1) 3%, transparent 4%);
+  background-size: 100px 100px, 150px 150px, 80px 80px;
 }
 
 .hero-content {
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .page-title {

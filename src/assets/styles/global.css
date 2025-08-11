@@ -16,14 +16,14 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* MSD风格配色变量 */
+/* 珠海优美化妆品配色变量 */
 :root {
-  /* 主色调 - 基于MSD网站提取的颜色 */
-  --primary-color: #64b7b2;        /* 青绿色主色 */
-  --primary-dark: #374641;         /* 深灰绿色 */
-  --primary-light: #9fadaa;        /* 浅绿色 */
-  --secondary-color: #9c6242;      /* 棕色辅助色 */
-  --accent-color: #b29162;         /* 金色强调色 */
+  /* 主色调 - 金色主题 */
+  --primary-color: #d4af37;        /* 金色主色 */
+  --primary-dark: #b8941f;         /* 深金色 */
+  --primary-light: #f4e4a6;        /* 浅金色 */
+  --secondary-color: #8b6914;      /* 深金色辅助色 */
+  --accent-color: #ffd700;         /* 明亮金色强调色 */
 
   /* 背景颜色 */
   --background-color: #fbfbfb;     /* 主背景色 */
