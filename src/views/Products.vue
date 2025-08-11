@@ -395,17 +395,18 @@ watch(
 
 .filter-select {
   padding: 8px 12px;
-  border: 2px solid var(--border-color);
+  border: none;
   border-radius: 6px;
   font-size: 14px;
   background: white;
   color: var(--text-primary);
   min-width: 120px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .filter-select:focus {
   outline: none;
-  border-color: var(--primary-color);
+  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.3);
 }
 
 .search-section {
