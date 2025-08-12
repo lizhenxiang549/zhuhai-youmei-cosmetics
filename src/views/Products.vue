@@ -404,7 +404,7 @@ watch(
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 16px;
@@ -417,13 +417,64 @@ watch(
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
 }
 
-/* 自定义下拉选项样式 */
+/* 完全自定义下拉选项样式 */
 .filter-select option {
-  background: white;
-  color: var(--text-primary);
-  padding: 8px 12px;
+  background: white !important;
+  color: var(--text-primary) !important;
+  padding: 8px 12px !important;
+  border: none !important;
+  outline: none !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+}
+
+/* 选项悬停和选中状态 - 金色主题 */
+.filter-select option:hover {
+  background: #d4af37 !important;
+  background: var(--primary-color) !important;
+  color: white !important;
+}
+
+.filter-select option:checked,
+.filter-select option:focus,
+.filter-select option[selected] {
+  background: #d4af37 !important;
+  background: var(--primary-color) !important;
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+/* 浏览器兼容性 - 移除默认样式 */
+.filter-select::-webkit-scrollbar {
+  width: 6px;
+}
+
+.filter-select::-webkit-scrollbar-track {
+  background: #f1f1f1;
   border: none;
-  font-size: 14px;
+}
+
+.filter-select::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+.filter-select::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* 针对 WebKit 浏览器的下拉选项样式 */
+.filter-select option:not(:checked) {
+  background-color: white !important;
+  color: var(--text-primary) !important;
+}
+
+/* 确保选中项的金色背景 */
+.filter-select option:checked {
+  background: linear-gradient(135deg, #d4af37, #f4d03f) !important;
+  color: white !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 .search-section {
