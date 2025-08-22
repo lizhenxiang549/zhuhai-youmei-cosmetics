@@ -1,0 +1,169 @@
+# 珠海优美化妆品电商网站 - 完整源码
+
+## 项目信息
+- 项目名称: 珠海优美化妆品电商网站
+- 技术栈: Vue.js 3 + TypeScript + Vite + Pinia + Vue Router
+- 部署地址: https://same-f4dqy73vop0-latest.netlify.app
+
+## 快速重建项目
+
+### 1. 创建项目基础结构
+```bash
+# 创建项目目录
+mkdir zhuhai-youmei-cosmetics
+cd zhuhai-youmei-cosmetics
+
+# 使用Vite创建Vue项目
+npm create vue@latest frontend -- --typescript --router --pinia
+cd frontend
+
+# 安装额外依赖
+npm install axios@^1.6.0
+```
+
+### 2. 替换配置文件
+
+#### package.json
+```json
+{
+  "name": "msd-style-cosmetics-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.4.0",
+    "vue-router": "^4.2.0",
+    "pinia": "^2.1.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "vite": "^5.0.0",
+    "typescript": "^5.0.0",
+    "vue-tsc": "^2.0.0",
+    "@types/node": "^20.0.0"
+  }
+}
+```
+
+#### vite.config.ts
+```typescript
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import { resolve } from 'path'
+
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
+  },
+  server: {
+    host: '0.0.0.0',
+    port: 3000,
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: false,
+  },
+})
+```
+
+#### netlify.toml
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+### 3. 核心文件
+
+#### src/main.ts
+```typescript
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+
+import App from './App.vue'
+import router from './router'
+import './assets/styles/global.css'
+
+const app = createApp(App)
+
+app.use(createPinia())
+app.use(router)
+
+app.mount('#app')
+```
+
+#### src/App.vue
+```vue
+<template>
+  <div id="app">
+    <router-view />
+  </div>
+</template>
+
+<script setup lang="ts">
+// Vue应用根组件
+</script>
+
+<style>
+#app {
+  min-height: 100vh;
+}
+</style>
+```
+
+## 部署说明
+
+### 本地运行
+```bash
+npm install
+npm run dev
+```
+
+### 生产构建
+```bash
+npm run build
+```
+
+### 部署到Netlify
+1. 构建项目: npm run build
+2. 上传 dist 文件夹到 Netlify
+3. 或使用 Netlify CLI: netlify deploy --prod --dir=dist
+
+---
+
+📧 如需完整的组件代码，请联系开发者获取详细文件内容。
+
+💡 此项目包含完整的电商功能：
+- 首页展示
+- 产品列表和详情页
+- 关于我们
+- 联系我们
+- 新闻资讯
+- 搜索功能
+- 响应式设计
+
+🚀 项目已成功部署并可正常访问！
