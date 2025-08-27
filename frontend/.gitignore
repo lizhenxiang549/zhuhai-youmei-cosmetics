@@ -1,0 +1,60 @@
+# 依赖文件夹
+node_modules/
+dist/
+
+# 本地环境变量
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE和编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统生成的文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 日志文件
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 运行时生成的文件
+.nuxt
+.output
+.nitro
+.cache
+.temp
+.tmp
+
+# 构建产物
+dist-ssr
+*.local
+
+# Bun相关
+.bun/
+
+# 部署相关
+.netlify/
+.vercel/
+
+# 测试覆盖率报告
+coverage/
+*.lcov
+
+# 其他
+*.tgz
+*.tar.gz

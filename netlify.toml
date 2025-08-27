@@ -1,0 +1,28 @@
+[build]
+  command = "cd frontend && npm install && npm run build"
+  publish = "frontend/dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  VITE_API_URL = "https://youmei-api.netlify.app"
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://youmei-api.netlify.app/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/admin/*"
+  to = "https://youmei-api.netlify.app/admin/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[dev]
+  command = "cd frontend && npm run dev"
+  port = 3000
